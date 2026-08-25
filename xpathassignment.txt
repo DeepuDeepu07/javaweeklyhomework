@@ -1,0 +1,64 @@
+XPath Practice Questions
+=========================
+
+Use the XPath Practice Page and write an XPath for each question.
+
+1. following-sibling
+   Locate the Username input using the "Username" label and the following-sibling axis.
+//label[text()='Username']/following-sibling::input
+
+2. preceding-sibling
+   Locate the Password label using the Password input and the preceding-sibling axis.
+//input[@type='password']/preceding-sibling::label
+
+3. normalize-space()
+   Locate the element whose visible text is "LOGIN", ignoring the spaces around the text.
+//*[normalize-space(text())='LOGIN']
+
+4. contains()
+   Locate the button whose text contains the word "Login".
+//*[contains(text(),'Login')]
+
+5. contains() + normalize-space()
+   Locate the element whose normalized text contains the word "Submit".
+//*[contains(normalize-space(text()),'Submit')]
+
+6. translate()
+   Locate the element containing "LOGIN" such that the XPath works regardless of uppercase/lowercase differences.
+//*[contains(translate(text(), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 'LOGIN')]
+
+7. translate() + contains()
+   Locate the button whose text contains "submit", ignoring uppercase/lowercase differences.
+//*[contains(translate(text(),  'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), 'submit')]
+
+8. following
+   Locate the verification-code input using the "Email verification is required." text and the following axis.
+//*[contains(text(), 'Email verification is required.')]/following::input[1]
+
+9. preceding
+   Locate the Profile Details heading using the profile-email input and the preceding axis.
+//input[@id='profile-email']/preceding::h3[contains(text(), 'Profile Details')]
+
+10. parent + child
+    Locate the Mobile Number input using the text "Mobile Number" and its parent/child relationship.
+//div[@class='field-label' and text()='Mobile Number']/parent::div/child::input
+
+11. ancestor
+    Locate the registration section containing the "REGISTER NOW" button using the ancestor axis.
+//button[contains(text(), 'REGISTER NOW')]/ancestor::div
+
+12. following-sibling + contains()
+    Locate the REGISTER NOW button using the div whose text contains "Registration" and the following-sibling axis.
+//*[contains(text(), 'Registration')]/following-sibling::button
+
+13. normalize-space() + translate()
+    Locate the element whose text is "User NAME", ignoring extra spaces and uppercase/lowercase differences.
+//*[translate(normalize-space(), 'USERNAME', 'username') = 'user name']
+
+14. contains() + following-sibling
+    Locate the Email input using a label whose text contains "Email" and the following-sibling axis.
+//label[contains(text(), 'Email')]/following-sibling::input
+
+15. translate() + normalize-space() + contains()
+    Locate the button whose text contains "LOGIN", ignoring leading/trailing spaces and uppercase/lowercase differences.
+//*[contains(translate(normalize-space(), 'LOGIN', 'login'), 'login')]
